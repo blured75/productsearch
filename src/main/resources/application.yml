@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: product
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+      cluster-name: elasticsearch
+      cluster-nodes: "localhost:9300"
+  activemq:
+    broker-url: tcp://localhost:61616
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  jms:
+    pub-sub-domain: true
+
+jms.ProductTopic: ProductT
+
+server:
+  port: 8086
+
+management.endpoints.web.exposure.include: '*'
+
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: '*'
+
+logging.level.org.hibernate.tool.hbm2ddl: DEBUG
+logging.level.org.hibernate.SQL: DEBUG
